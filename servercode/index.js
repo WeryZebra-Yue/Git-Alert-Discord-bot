@@ -3,7 +3,9 @@ const app = express()
 
 app.post('/Hook', function(req, res){
     // console.log(res.);
-   res.json(req.body);
+   req.on('data', function(data){
+       console.log(data);
+   });
 });
 
 app.listen(3000);
