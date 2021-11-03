@@ -9,7 +9,7 @@ app.use(
   app.use(express.json())
 app.post('/Hook', function(req, res){
     // console.log(res.);
-    req.on('end', () => {
+    req.on('data', () => {
         console.log(JSON.parse(data)); // 'Buy the milk'
         res.end();
       })
