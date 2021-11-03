@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 
 app.post('/Hook', function(req, res){
-    console.log(req.body);
-    res.end(JSON.stringify(response));  
+    console.log(req.headers);
+   
 });
 
 app.listen(3000);
