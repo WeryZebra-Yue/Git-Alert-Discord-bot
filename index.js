@@ -36,6 +36,7 @@ let route;
 
 client.on('messageCreate',(message)=>{
     if(message.content.split(' ')[0] === 'git'){
+      console.log(message.content.split(' ')[1]);
         
       if(message.content.split(' ')[1].toLowerCase() === 'set'){
           message.reply(`Setted Up to /${message.content.split(' ')[2]}`);
