@@ -37,20 +37,22 @@ client.on('messageCreate',(message)=>{
       if(message.content.split(' ')[1].toLowerCase() === 'set'){
           message.reply(`Setted Up to /${message.content.split(' ')[2]}`);
           route = message.content.split(' ')[2]
-         
+         webHook(route);
         }
-        app.post(`/hook`, function(req, res){
-          // console.log(res.);
-          message.channel.send(`${req.body}`);
-          
-          console.log(req.body);
-        });
+       
        
     }  
 
     
 })
-
+function webHook(route){
+  app.post(`/${route}`, function(req, res){
+    // console.log(res.);
+    message.channel.send(`${req.body}`);
+    
+    console.log(req.body);
+  });
+}
 client.login(process.env.TOKEN);
 
 
