@@ -48,7 +48,7 @@ client.on('messageCreate',(message)=>{
 function webHook(route){
   app.post(`/${route}`, function(req, res){
     // console.log(res.);
-    message.channel.send(`${req.body}`);
+    // message.channel.send(`${req.body}`);
     
     console.log(req.body);
   });
