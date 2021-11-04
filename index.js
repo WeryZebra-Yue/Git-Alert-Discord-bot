@@ -50,11 +50,9 @@ function webHook(route , message){
   app.post(`/${route}`, function(req, res){
     const EmbdedMessage = {
       color: 2552552,
-      description: `**Ref: [#${req.body.commits[0].id.slice(0, 7)}](${
+      description: `**Reference URL : [#${req.body.commits[0].id.slice(0, 7)}](${
         req.body.commits[0].url
-      })** \n**Message: **${req.body.commits[0].message}\n**Time: **${new Date(
-        req.body.commits[0].timestamp
-      ).toString()}`,
+      })** \n**Commit message : **${req.body.commits[0].message}\n**Time : **${new Date(req.body.commits[0].toDateString())} , ${new Date(req.body.commits[0].timestamp.toTimeString().slice(0,8))}`,
       // description: `**Message**: ${req.body.commits[0].message} \n**req.body.commits[0] ID**: [${id}](${url}) \n**Timestamp**: ${timestamp}\n\n`,
       footer: {
         icon_url: `https://github.com/${req.body.commits[0].author.username}.png?size=200`,
