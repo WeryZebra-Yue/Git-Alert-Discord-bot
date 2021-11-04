@@ -27,7 +27,6 @@ const Channel = client.channels.cache.get('822334726890455053');
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
    
-    
 });
 let route;
 
@@ -46,9 +45,6 @@ client.on('messageCreate',(message)=>{
      
 })
 function webHook(route , message){
-
-
-
   app.post(`/${route}`, function(req, res){
     // console.log(res.);
     message.channel.send(`Name : ${req.body.pusher.name}`);
