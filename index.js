@@ -67,7 +67,7 @@ function webHook(route , message){
     // message.channel.send(`Time : ${req.body.head_commit.timestamp.split('T')[1].split('+')[0]}`);
     // message.channel.send(`Date : ${req.body.head_commit.timestamp.split('T')[0]}`);
     // message.channel.send(`____________________________________________________`);
-  
+    
     console.log(EmbdedMessage)
     
     console.log(req.body);
