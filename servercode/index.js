@@ -38,6 +38,7 @@ client.on('messageCreate',(message)=>{
           app.post(`/${message.content.split(' ')[2]}`, function(req, res){
             // console.log(res.);
             message.channel.send(`${req.body}`);
+            console.log(req.body);
         });
         }
        
