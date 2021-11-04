@@ -8,8 +8,8 @@ app.use(
     
     app.use(express.json())
     
-    
-app.listen(3000||process.env.PORT);
+const port = process.env.PORT || 3000
+app.listen(port);
 app.get('/', (req, res) => {
   res.send('Hello World!');
 })
