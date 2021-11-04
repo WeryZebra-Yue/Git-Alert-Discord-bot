@@ -37,7 +37,7 @@ client.on('messageCreate',(message)=>{
       if(message.content.split(' ')[1].toLowerCase() === 'set'){
           message.reply(`Setted Up to /${message.content.split(' ')[2]}`);
           route = message.content.split(' ')[2]
-         webHook(route);
+         webHook(route , message);
         }
        
        
@@ -45,13 +45,13 @@ client.on('messageCreate',(message)=>{
 
      
 })
-function webHook(route){
+function webHook(route , message){
 
 
 
   app.post(`/${route}`, function(req, res){
     // console.log(res.);
-    // message.channel.send(`${req.body}`);
+    message.channel.send(`${req.body}`);
     
     console.log(req.body);
   });
