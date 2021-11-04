@@ -10,7 +10,9 @@ app.use(express.json())
 
 
 app.listen(3000||process.env.PORT);
-
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+})
 /// balh blah
 
 import dotenv from 'dotenv';
