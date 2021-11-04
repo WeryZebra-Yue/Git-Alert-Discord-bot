@@ -45,7 +45,7 @@ client.on('messageCreate',(message)=>{
   }  
   // CHnaged something
   
-})
+})//jd
 function webHook(route , message){
   app.post(`/${route}`, function(req, res){
    
