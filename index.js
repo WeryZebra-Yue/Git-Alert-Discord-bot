@@ -1,4 +1,4 @@
-import express from 'express'
+const express = require('express');
 const app = express()
 app.use(
   express.urlencoded({
@@ -14,9 +14,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 })
 /// balh blah
-
-import dotenv from 'dotenv';
-import Discord, {  Intents } from 'discord.js';
+const Discord = require('discord.js');
+const {Intents} = require('discord.js');
+// const clients = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const dotenv = require('dotenv');
 dotenv.config();
 const client = new Discord.Client({
   intents:[
