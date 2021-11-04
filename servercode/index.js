@@ -30,7 +30,7 @@ client.on('ready', () => {
     
 });
 let route;
-let HelloInterval;
+
 client.on('messageCreate',(message)=>{
     if(message.content.split(' ')[0] === 'git'){
         
@@ -43,12 +43,12 @@ client.on('messageCreate',(message)=>{
        
     }  
 
-    
+     
 })
 function webHook(route){
 
 
-  
+
   app.post(`/${route}`, function(req, res){
     // console.log(res.);
     // message.channel.send(`${req.body}`);
