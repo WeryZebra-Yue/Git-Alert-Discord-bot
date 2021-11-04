@@ -13,7 +13,7 @@ app.listen(3000||process.env.PORT);
 app.get('/', (req, res) => {
   res.send('Hello World!');
 })
-/// balh blah
+
 
 import dotenv from 'dotenv';
 import Discord, {  Intents } from 'discord.js';
@@ -48,7 +48,7 @@ client.on('messageCreate',(message)=>{
 })
 function webHook(route , message){
   app.post(`/${route}`, function(req, res){
-    // console.log(res.);
+   
     message.channel.send(`Name : ${req.body.pusher.name}`);
     message.channel.send(`Messages : ${req.body.head_commit.message}`);
     message.channel.send(`Time : ${req.body.head_commit.timestamp.split('T')[1].split('+')[0]}`);
@@ -58,7 +58,7 @@ function webHook(route , message){
     console.log(req.body);
   });
 }
-// Just testingg
+// Just testingg #2
 
 client.login(process.env.TOKEN);
 
