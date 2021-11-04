@@ -35,7 +35,8 @@ client.on('messageCreate',(message)=>{
         
       if(message.content.split(' ')[1].toLowerCase() === 'set'){
           message.reply(`Setted Up to /${message.content.split(' ')[2]}`);
-          app.post(`/${message.content.split(' ')[2]}`, function(req, res){
+          const route = message.content.split(' ')[2]
+          app.post(`/${route}`, function(req, res){
             // console.log(res.);
             message.channel.send(`${req.body}`);
             console.log(req.body);
