@@ -49,7 +49,9 @@ function webHook(route , message){
     // console.log(res.);
     message.channel.send(`Name : ${req.body.pusher.name}`);
     message.channel.send(`Messages : ${req.body.head_commit.message}`);
-    message.channel.send(`Time Stamp : ${req.body.head_commit.timestamp}`);
+    message.channel.send(`Time : ${req.body.head_commit.timestamp.split('T')[1].split('+')[0]}`);
+    message.channel.send(`Date : ${req.body.head_commit.timestamp.split('T')[0]}`);
+    message.channel.send(`____________________________________________________`);
     
     console.log(req.body);
   });
