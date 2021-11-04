@@ -1,11 +1,11 @@
 import express from 'express'
 const app = express()
 app.use(
-    express.urlencoded({
+  express.urlencoded({
       extended: true
     })
   )
-
+  
 app.use(express.json())
 
 
@@ -19,11 +19,12 @@ import dotenv from 'dotenv';
 import Discord, {  Intents } from 'discord.js';
 dotenv.config();
 const client = new Discord.Client({
-    intents:[
-       Intents.FLAGS.GUILDS,
-       Intents.FLAGS.GUILD_MESSAGES,
-    ]
+  intents:[
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MESSAGES,
+  ]
 });
+client.login(process.env.TOKEN);
 const Channel = client.channels.cache.get('822334726890455053');
 
 client.on('ready', () => {
@@ -59,6 +60,5 @@ function webHook(route , message){
   });
 }
  // Just testingg
-client.login(process.env.TOKEN);
 
 
