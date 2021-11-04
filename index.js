@@ -77,4 +77,4 @@ function webHook(route , message){
 
 client.login(process.env.TOKEN);
 
-new Date().toDateString()
+// new Date().toDateString()
