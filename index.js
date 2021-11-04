@@ -15,18 +15,18 @@ app.get('/', (req, res) => {
 })
 /// balh blah
 const Discord = require('discord.js');
-const {Intents} = require('discord.js');
+const {Intents , Client} = require('discord.js');
 // const clients = new Client({ intents: [Intents.FLAGS.GUILDS] });
 const dotenv = require('dotenv');
 dotenv.config();
-const client = new Discord.Client({
+const client = new Client({
   intents:[
     Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MESSAGES,
+    
   ]
 });
 client.login(process.env.TOKEN);
-const Channel = client.channels.cache.get('822334726890455053');
+// const Channel = client.channels.cache.get('822334726890455053');
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
