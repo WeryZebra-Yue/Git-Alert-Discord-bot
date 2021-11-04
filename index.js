@@ -61,8 +61,9 @@ function webHook(route , message){
         text: req.body.commits[0].author.username,
       },
     }
-    // message.channel.send({ embeds: [EmbdedMessage]});
+    message.channel.send({ embeds: [EmbdedMessage]});
     console.log(EmbdedMessage);
+    
     // message.channel.send(`Name : ${req.body.pusher.name}`);
     // message.channel.send(`Messages : ${req.body.head_commit.message}`);
     // message.channel.send(`Time : ${req.body.head_commit.timestamp.split('T')[1].split('+')[0]}`);
