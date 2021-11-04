@@ -39,7 +39,12 @@ client.on('messageCreate',(message)=>{
           route = message.content.split(' ')[2]
          
         }
-
+        app.post(`/hook`, function(req, res){
+          // console.log(res.);
+          message.channel.send(`${req.body}`);
+          
+          console.log(req.body);
+        });
        
     }  
 
@@ -48,10 +53,5 @@ client.on('messageCreate',(message)=>{
 
 client.login(process.env.TOKEN);
 
-  app.post(`/hook`, function(req, res){
-    // console.log(res.);
-    message.channel.send(`${req.body}`);
-    
-    console.log(req.body);
-  });
+
 
