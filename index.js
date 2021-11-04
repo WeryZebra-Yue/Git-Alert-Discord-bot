@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 
 import dotenv from 'dotenv';
-import Discord, {  Intents } from 'discord.js';
+import Discord, {  Intents , MessageAttachment  } from 'discord.js';
 dotenv.config();
 const client = new Discord.Client({
   intents:[
@@ -48,12 +48,25 @@ client.on('messageCreate',(message)=>{
 })//jd
 function webHook(route , message){
   app.post(`/${route}`, function(req, res){
-   
-    message.channel.send(`Name : ${req.body.pusher.name}`);
-    message.channel.send(`Messages : ${req.body.head_commit.message}`);
-    message.channel.send(`Time : ${req.body.head_commit.timestamp.split('T')[1].split('+')[0]}`);
-    message.channel.send(`Date : ${req.body.head_commit.timestamp.split('T')[0]}`);
-    message.channel.send(`____________________________________________________`);
+    const EmbdedMessage = {
+      color: 2552552,
+      description: `**Ref: [#${req.body.commits[0].id.slice(0, 7)}](${
+        req.body.commits[0].url
+      })** \n**Message: **${req.body.commits[0].message}\n**Time: **${new Date(
+        req.body.commits[0].timestamp
+      ).toString()}`,
+      // description: `**Message**: ${req.body.commits[0].message} \n**req.body.commits[0] ID**: [${id}](${url}) \n**Timestamp**: ${timestamp}\n\n`,
+      footer: {
+        icon_url: `https://github.com/${req.body.commits[0].author.username}.png?size=200`,
+        text: req.body.commits[0].author.username,
+      },
+    }
+    // message.channel.send(`Name : ${req.body.pusher.name}`);
+    // message.channel.send(`Messages : ${req.body.head_commit.message}`);
+    // message.channel.send(`Time : ${req.body.head_commit.timestamp.split('T')[1].split('+')[0]}`);
+    // message.channel.send(`Date : ${req.body.head_commit.timestamp.split('T')[0]}`);
+    // message.channel.send(`____________________________________________________`);
+    message.channel.send(EmbdedMessage);
     
     console.log(req.body);
   });
