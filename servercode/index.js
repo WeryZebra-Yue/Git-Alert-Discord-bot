@@ -48,7 +48,7 @@ client.on('messageCreate',(message)=>{
 
 client.login(process.env.TOKEN);
 
-  app.post(`/${route}`, function(req, res){
+  app.post(`/hook`, function(req, res){
     // console.log(res.);
     message.channel.send(`${req.body}`);
     
